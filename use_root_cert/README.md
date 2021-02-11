@@ -30,7 +30,7 @@ $ cat server.key ca.pem > owasp_zap.pem
 
     adb $ su - root
     adb $ mount -o rw,remount /system
-    adb $ mv /data/local/tmp/{hash}.0 /system/etc/security/
+    adb $ mv /data/local/tmp/{hash}.0 /system/etc/security/cacerts
     adb $ chmod 644 /system/etc/security/{hash}.0
 
     reboot device
