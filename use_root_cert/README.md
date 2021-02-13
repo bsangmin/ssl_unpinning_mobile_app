@@ -1,8 +1,8 @@
 # Using root certificate
 
-## Create certificate ([source](https://hackcatml.tistory.com/m/37))
+### Create certificate ([source](https://hackcatml.tistory.com/m/37))
 
-```
+```bash
 $ sudo apt install openssl
 
 $ openssl req -x509 -days 730 -nodes -newkey rsa:2048 -outform der -keyout server.key -out ca.der -extensions v3_ca
@@ -20,23 +20,23 @@ for OWASP_ZAP
 $ cat server.key ca.pem > owasp_zap.pem
 ```
 
-## Install certificate on devices
+### Install certificate on devices
 
--   android >= 7.0
+- android >= 7.0
 
-    ```
-    $ adb push {hash}.0 /data/local/tmp
-    $ adb shell
+  ```bash
+  $ adb push {hash}.0 /data/local/tmp
+  $ adb shell
 
-    adb $ su - root
-    adb $ mount -o rw,remount /system
-    adb $ mv /data/local/tmp/{hash}.0 /system/etc/security/cacerts
-    adb $ chmod 644 /system/etc/security/{hash}.0
+  adb $ su - root
+  adb $ mount -o rw,remount /system
+  adb $ mv /data/local/tmp/{hash}.0 /system/etc/security/cacerts
+  adb $ chmod 644 /system/etc/security/{hash}.0
 
-    reboot device
-    ```
+  reboot device
+  ```
 
--   [android < 7.0](https://www.youtube.com/watch?v=Aff-XIkNsso) (use ca.pem)
--   [ios](https://support.citrix.com/article/CTX228877) (use ca.pem)
+- [android < 7.0](https://www.youtube.com/watch?v=Aff-XIkNsso) (use ca.pem)
+- [ios](https://support.citrix.com/article/CTX228877) (use ca.pem)
 
-## [See set proxy](../set_proxy)
+### [See set proxy](../set_proxy)

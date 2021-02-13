@@ -1,25 +1,26 @@
 # Using Frida
 
-## Install and run Frida server on devices
+### Install and run Frida server on devices
 
 Get your Frida server at https://github.com/frida/frida/releases  
 You should download frida-server-{version}-android-{bit} or {type}.xz for android
 
 ```
-version -> what you want
+:version
+what you want
 
-bit
+:bit
 $ adb shell getprop ro.product.cpu.abi
 ex) x86
 
-type
+:type
 $ adb shell getprop ro.product.cpu.abi2
 ex) arm
 ```
 
 In my case frida-server-14.2.12-android-x86.xz
 
-```
+```bash
 $ tar -xvf frida-server-14.2.12-android-x86.xz
 $ adb push frida-server-14.2.12-android-x86 /data/local/tmp
 $ adb shell
@@ -30,18 +31,18 @@ adb $ chmod 744 frida_srv
 adb $ ./frida_srv &
 ```
 
-## Frida tool install
+### Frida tool install
 
 You can install from npm or pip  
 See detail https://frida.re/
 
-```
+```bash
 $ pip install frida-tools
 ```
 
-## Unpinning
+### Unpinning
 
-```
+```bash
 $ frida-ps -Uai
 
  PID  Name                                   Identifier
